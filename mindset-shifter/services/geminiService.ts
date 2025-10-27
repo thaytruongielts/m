@@ -35,32 +35,6 @@ const transformedBeliefsSchema = {
 
 
 export async function transformBelief(limitingBelief: string): Promise<TransformedBeliefs> {
-  if (!process.env.API_KEY) {
-    console.warn("API_KEY environment variable not set. Using mocked data.");
-    return new Promise(resolve => setTimeout(() => resolve({
-      logic: [
-        { text: "My father served in the army, the largest-scale organization in Vietnam, which means I have inherited a blueprint for large-scale success.", tense: "Present Simple", translation: "Bố tôi phục vụ trong quân đội, tổ chức quy mô lớn nhất Việt Nam, điều đó có nghĩa là tôi đã thừa hưởng một khuôn mẫu cho sự thành công quy mô lớn." },
-        { text: "Large scale is simply many people sharing a common direction; my powerful vision will attract many to join me.", tense: "Future Simple", translation: "Quy mô lớn chỉ đơn giản là nhiều người cùng chung một định hướng; tầm nhìn mạnh mẽ của tôi sẽ thu hút nhiều người tham gia cùng tôi." },
-        { text: "I have been observing scalable systems my whole life through my father's experience.", tense: "Present Perfect Continuous", translation: "Tôi đã quan sát các hệ thống có thể mở rộng suốt cuộc đời mình qua kinh nghiệm của bố tôi." },
-        { text: "I had already understood the principles of hierarchy and structure before I even started my business.", tense: "Past Perfect", translation: "Tôi đã hiểu các nguyên tắc về hệ thống cấp bậc và cấu trúc trước cả khi tôi bắt đầu kinh doanh." },
-        { text: "By this time next year, I will have been leading a large-scale organization for a significant period.", tense: "Future Perfect Continuous", translation: "Vào thời điểm này năm sau, tôi sẽ đã đang lãnh đạo một tổ chức quy mô lớn được một thời gian đáng kể." }
-      ],
-      emotion: [
-        { text: "My father's immense love for the army inspires my immense love for large-scale endeavors.", tense: "Present Simple", translation: "Tình yêu bao la của bố tôi dành cho quân đội truyền cảm hứng cho tình yêu bao la của tôi đối với những nỗ lực quy mô lớn." },
-        { text: "I am feeling a deep connection to my father's legacy of discipline and commitment.", tense: "Present Continuous", translation: "Tôi đang cảm thấy một sự kết nối sâu sắc với di sản kỷ luật và cam kết của bố tôi." },
-        { text: "I was always proud of my father's role, and now I channel that pride into my own large-scale projects.", tense: "Past Simple", translation: "Tôi đã luôn tự hào về vai trò của bố tôi, và bây giờ tôi chuyển niềm tự hào đó vào các dự án quy mô lớn của riêng mình." },
-        { text: "Seeing my father's dedication gave me the passion I need to build something of a massive scale.", tense: "Past Simple", translation: "Việc chứng kiến sự cống hiến của bố đã cho tôi niềm đam mê cần thiết để xây dựng một thứ gì đó ở quy mô lớn." },
-        { text: "I will feel immensely fulfilled when my team achieves its large-scale goals.", tense: "Future Simple", translation: "Tôi sẽ cảm thấy vô cùng mãn nguyện khi đội của mình đạt được các mục tiêu quy mô lớn." }
-      ],
-      animal: [
-        { text: "I am scaling my operations daily; it is an action, a verb.", tense: "Present Continuous", translation: "Tôi đang mở rộng quy mô hoạt động của mình hàng ngày; đó là một hành động, một động từ." },
-        { text: "I scaled my ambitions yesterday, and I am scaling them again today.", tense: "Past Simple & Present Continuous", translation: "Tôi đã mở rộng quy mô tham vọng của mình ngày hôm qua, và tôi lại đang mở rộng chúng ngày hôm nay." },
-        { text: "I was constantly taking small, scalable actions while I planned my big move.", tense: "Past Continuous", translation: "Tôi đã liên tục thực hiện những hành động nhỏ có thể mở rộng trong khi tôi lên kế hoạch cho bước đi lớn của mình." },
-        { text: "Scaling is my instinct; it is what I do.", tense: "Present Simple", translation: "Mở rộng quy mô là bản năng của tôi; đó là việc tôi làm." },
-        { text: "I will be executing scalable strategies all day tomorrow.", tense: "Future Continuous", translation: "Tôi sẽ thực thi các chiến lược có thể mở rộng suốt cả ngày mai." }
-      ]
-    }), 1500));
-  }
 
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
