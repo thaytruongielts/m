@@ -36,7 +36,7 @@ const transformedBeliefsSchema = {
 
 export async function transformBelief(limitingBelief: string): Promise<TransformedBeliefs> {
 
-  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+  const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
   const response = await ai.models.generateContent({
     model: "gemini-2.5-pro",
